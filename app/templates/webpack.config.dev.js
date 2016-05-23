@@ -1,10 +1,16 @@
 var webpack = require('webpack');
 
+var devServer = '<%= devServerPath %>';
+var webpackServer = '<%= webpackDevServer %>';
+var publicPath = webpackServer + '/bundled/';
+var bundleDir = '/bundled/';
+var bundlePath = '<%= bundlePath %>';
+
 module.exports = {
     devtool: 'source-map',
     entry: {
         app: [
-            'webpack-dev-server/client?http://localhost:8080',
+            'webpack-dev-server/client?' + webpackServer,
             'webpack/hot/only-dev-server',
             './app/js/src/app.js'
         ]
@@ -12,7 +18,7 @@ module.exports = {
     output: {
         path: 'app/js/bundled/',
         filename: '[name].bundle.js',
-        publicPath: 'http://localhost:8080/bundled/'
+        publicPath: publicPath
     },
     module: {
         loaders: [{ test: /\.jsx?$/, exclude: /node_modules/, loaders: ['babel'] }]
@@ -29,7 +35,7 @@ module.exports = {
     },
     devServer: {
         headers: {
-            'Access-Control-Allow-Origin': 'http://localhost:8000',
+            'Access-Control-Allow-Origin': devServer,
             'Access-Control-Allow-Credentials': true
         }
     },
