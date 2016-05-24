@@ -1,6 +1,10 @@
 var generators = require('yeoman-generator');
 
 module.exports = generators.Base.extend({
+
+    promptUser: function() {
+        //
+    },
   writing: {
     actions: function() {
       this.fs.write(this.destinationPath('actions/index.js'), '');
