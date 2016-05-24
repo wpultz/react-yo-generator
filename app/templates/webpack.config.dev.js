@@ -4,7 +4,7 @@ var devServer = '<%= devServerPath %>';
 var webpackServer = '<%= webpackDevServer %>';
 var publicPath = webpackServer + '/bundled/';
 var bundleDir = '/bundled/';
-var bundlePath = '<%= bundlePath %>';
+var bundlePath = 'app/js/bundled';
 
 module.exports = {
     devtool: 'source-map',

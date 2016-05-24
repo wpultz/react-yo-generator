@@ -1,7 +1,7 @@
 {
   "name": "react-testing-examples",
   "version": "1.0.0",
-  "description": "karma, mocha, phantomjs testing setup + testing redux action creators/reducers and react components",
+  "description": "auto-generated package.json",
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=testing karma start --single-run",
@@ -12,19 +12,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wpultz/react-testing-examples.git"
+    "url": "git+https://github.com/<%= gitRepo %>"
   },
   "keywords": [
     "react",
     "redux",
-    "enzyme"
+    "enzyme",
+    "karma",
+    "webpack"
   ],
-  "author": "wpultz",
+  "author": "<%= author %>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wpultz/react-testing-examples/issues"
+    "url": "https://github.com/<%= gitRepo %>/issues"
   },
-  "homepage": "https://github.com/wpultz/react-testing-examples#readme",
+  "homepage": "https://github.com/<%= gitRepo %>#readme",
   "dependencies": {
     "babel-polyfill": "^6.8.0",
     "classnames": "^2.2.5",
