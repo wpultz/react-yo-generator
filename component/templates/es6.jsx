@@ -9,7 +9,7 @@ export class <%= className %> extends React.Component {
         super(props);
     }
 
-    return () {
+    render() {
         return <div>content goes here</div>;
     }
 }

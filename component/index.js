@@ -9,6 +9,10 @@ module.exports = generators.Base.extend({
         }, {
             name: 'className',
             message: 'component name?'
+        }, {
+            name: 'componentPath',
+            message: 'path to component',
+            default: ''
         }];
 
         return this.prompt(prompts).then(function(props) {
@@ -25,7 +29,7 @@ module.exports = generators.Base.extend({
 
             this.fs.copyTpl(
                 this.templatePath(templateFile),
-                this.destinationPath(this.props.className + '.jsx'),
+                this.destinationPath(this.props.componentPath + this.props.className + '.jsx'),
                 this.props
             );
         }
