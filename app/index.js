@@ -7,6 +7,10 @@ module.exports = generators.Base.extend({
             name: 'projectName',
             message: 'project name?'
         }, {
+            name: 'projectDir',
+            message: 'project directory?',
+            default: ''
+        }, {
             name: "gitRepo",
             message: "git repo? (ex. wpultz/react-yo-generator)"
         }, {
@@ -23,6 +27,10 @@ module.exports = generators.Base.extend({
         }];
 
         return this.prompt(prompts).then(function(props) {
+            if (props.projectDir) {
+             //   props.projectDir += '/';
+                this.destinationRoot(props.projectDir);
+            }
             this.props = props;
         }.bind(this));
     },
@@ -30,25 +38,25 @@ module.exports = generators.Base.extend({
     writing: {
 	babel: function() {
 		this.fs.copy(
-			this.templatePath('babelrc'),
+			this.templatePath('../../common/templates/babelrc'),
 			this.destinationPath('.babelrc')
 		)
 	},
 	editorconfig: function() {
 		this.fs.copy(
-			this.templatePath('editorconfig'),
+			this.templatePath('../../common/templates/editorconfig'),
 			this.destinationPath('.editorconfig')
 		)
 	},
 	eslint: function() {
 		this.fs.copy(
-		this.templatePath('eslintrc'),
+		this.templatePath('../../common/templates/eslintrc'),
 			this.destinationPath('.eslintrc')
 		)
 	},
 	karma: function() {
 		this.fs.copy(
-			this.templatePath('karma.conf.js'),
+		this.templatePath('karma.conf.js'),
 		this.destinationPath('karma.conf.js')
 		)
 	},
