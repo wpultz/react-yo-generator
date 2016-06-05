@@ -38,20 +38,20 @@ module.exports = generators.Base.extend({
     writing: {
 	babel: function() {
 		this.fs.copy(
-			this.templatePath('../../common/templates/babelrc'),
+			this.templatePath('../../common/templates/_babelrc'),
 			this.destinationPath('.babelrc')
 		)
 	},
 	editorconfig: function() {
 		this.fs.copy(
-			this.templatePath('../../common/templates/editorconfig'),
+			this.templatePath('../../common/templates/_editorconfig'),
 			this.destinationPath('.editorconfig')
 		)
 	},
 	eslint: function() {
 		this.fs.copy(
-		this.templatePath('../../common/templates/eslintrc'),
-			this.destinationPath('.eslintrc')
+		    this.templatePath('../../common/templates/_eslintrc'),
+	    	    this.destinationPath('.eslintrc')
 		)
 	},
 	karma: function() {
@@ -75,7 +75,7 @@ module.exports = generators.Base.extend({
 	},
 	package: function() {
 		this.fs.copyTpl(
-			this.templatePath('_package.json'),
+			this.templatePath('__package.json'),
                 	this.destinationPath('package.json'),
                         this.props
         	)

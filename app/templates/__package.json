@@ -6,6 +6,7 @@
   "scripts": {
     "test": "NODE_ENV=testing karma start --single-run",
     "test:cov": "COVERAGE=true NODE_ENV=testing karma start --single-run",
+    "lint": "eslint --ext .js,.jsx ./",
     "devserver": "node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack.config.dev.js --hot-inline",
     "expserver": "node index.js",
     "start": "npm run devserver | npm run expserver"
