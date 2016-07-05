@@ -24,6 +24,10 @@ module.exports = generators.Base.extend({
             name: 'webpackDevServer',
             message: 'webpack dev server path?',
             default: 'http://localhost:8080'
+        }, {
+            name: 'doInstall',
+            message: 'install dependencies?',
+            default: true
         }];
 
         return this.prompt(prompts).then(function(props) {
@@ -62,7 +66,7 @@ module.exports = generators.Base.extend({
 	},
 	webpack: function() {
 		this.fs.copyTpl(
-			this.templatePath('webpack.config.dev.js'),
+			this.templatePath('../../common/templates/webpack.config.dev.js'),
 			this.destinationPath('webpack.config.dev.js'),
                         this.props
 		)
@@ -84,7 +88,9 @@ module.exports = generators.Base.extend({
     },
 
     install: function() {
-	this.installDependencies();
+        if (this.props.doInstall) {
+	    this.installDependencies();
+        }
     }
 
 });

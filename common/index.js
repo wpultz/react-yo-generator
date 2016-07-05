@@ -5,7 +5,11 @@ module.exports = generators.Base.extend({
     prompting: function() {
         var prompts = [{
             name: 'fileName',
-            message: 'file to copy:\n(babel)\t.babelrc\n(es)\t.eslintrc\n(ed)\t.editorconfig\n'
+            message: 'file to copy:\n' + 
+                '(babel)\t.babelrc\n' + 
+                '(es)\t.eslintrc\n' + 
+                '(ed)\t.editorconfig\n' +
+                '(wpd)\twebpack.config.dev.js\n'
         }];
 
         return this.prompt(prompts).then(function(props) {
@@ -17,7 +21,7 @@ module.exports = generators.Base.extend({
 	babel: function() {
             if (this.props.fileName === 'babel') {
                 this.fs.copy(
-		    this.templatePath('../../common/templates/_babelrc'),
+		    this.templatePath('_babelrc'),
 		    this.destinationPath('.babelrc')
                 );
             }
@@ -25,7 +29,7 @@ module.exports = generators.Base.extend({
 	editorconfig: function() {
             if (this.props.fileName === 'ed') {
 		this.fs.copy(
-			this.templatePath('../../common/templates/_editorconfig'),
+			this.templatePath('_editorconfig'),
 			this.destinationPath('.editorconfig')
 		);
             }
@@ -33,8 +37,16 @@ module.exports = generators.Base.extend({
 	eslint: function() {
             if (this.props.fileName === 'es') {
 		this.fs.copy(
-		    this.templatePath('../../common/templates/_eslintrc'),
+		    this.templatePath('_eslintrc'),
 	    	    this.destinationPath('.eslintrc')
+		);
+            }
+	},
+	webpackdev: function() {
+            if (this.props.fileName === 'wpd') {
+		this.fs.copy(
+		    this.templatePath('../../app/templates/webpack.config.dev.js'),
+	    	    this.destinationPath('webpack.config.dev.js')
 		);
             }
 	}
