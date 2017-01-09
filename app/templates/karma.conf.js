@@ -13,7 +13,7 @@ module.exports = function (config) {
     if (runCoverage) {
         coverageLoaders.push({
             test: /\.jsx?/,
-            include: path.resolve(__dirname, 'app/js/src'),
+            include: path.resolve(__dirname, '<%= jsSrcPath %>'),
             loader: 'isparta'
         });
 
@@ -30,7 +30,7 @@ module.exports = function (config) {
         ],
 
         preprocessors: {
-            'app/js/src/**/*.js': ['babel'],
+            '<%= jsSrcPath %>/**/*.js': ['babel'],
             'tests.webpack.js': ['webpack', 'sourcemap']
         },
 
